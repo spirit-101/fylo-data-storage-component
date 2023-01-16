@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+
+    <title>Frontend Mentor | Fylo data storage component</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="file__box">
+          <img src="images/logo.svg" alt="Fylo" class="file__logo" />
+
+          <ul class="file__list">
+            <li class="file__list-item">
+              <button>
+                <img
+                  src="images/icon-document.svg"
+                  alt="Document"
+                  class="file__icon"
+                />
+              </button>
+            </li>
+
+            <li class="file__list-item">
+              <button type="button">
+                <img
+                  src="images/icon-folder.svg"
+                  alt="Folder"
+                  class="file__icon"
+                />
+              </button>
+            </li>
+
+            <li class="file__list-item">
+              <button type="button">
+                <img
+                  src="images/icon-upload.svg"
+                  alt="Upload"
+                  class="file__icon"
+                />
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="storage__box">
+          <h1 class="heading__primary">
+            You've used <span>815 GB</span> of your storage
+          </h1>
+          <div class="storage__bar"></div>
+
+          <div class="marker__box">
+            <span class="marker__num">0 GB</span>
+            <span class="marker__num">1000 GB</span>
+          </div>
+
+          <div class="gb__box">
+            <p class="gb__text">185 <span>GB LEFT</span></p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- You've used 815 GB of your storage 185 GB Left 0 GB 1000 GB -->
+  </body>
+</html>

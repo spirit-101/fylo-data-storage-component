@@ -1,0 +1,259 @@
+// RESETS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+}
+
+// PIXEL -> REM (FUNC)
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+//
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  line-height: 1.1;
+
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+
+  background: url(../images/bg-desktop.png), hsl(229, 57%, 11%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  background-position: 0vw 50vh;
+
+  @include respond(phone) {
+    background: url(../images/bg-mobile.png), hsl(229, 57%, 11%);
+    background-position: 0 0;
+    background-size: cover;
+  }
+}
+
+.container {
+  max-width: rem(1440px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  align-items: end;
+  gap: rem(30px);
+
+  padding: rem(80px) 0;
+
+  @include respond(phone) {
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.file {
+  &__box {
+    text-align: left;
+    background-color: hsl(228, 56%, 26%);
+    padding: rem(46px) rem(115px) rem(46px) rem(46px);
+
+    border-radius: 10px 100px 10px 10px;
+  }
+
+  &__logo {
+    margin-bottom: rem(28px);
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: rem(18px);
+
+    &-item {
+      display: grid;
+      place-items: center;
+
+      width: rem(48px);
+      height: rem(48px);
+      background-color: hsl(229, 57%, 11%);
+      border-radius: 10px;
+    }
+  }
+}
+
+.heading {
+  &__primary {
+    font-size: rem(15px);
+    font-weight: 400;
+    color: hsl(243, 100%, 93%);
+    margin-bottom: rem(18px);
+
+    & span {
+      font-weight: 700;
+    }
+  }
+}
+
+.storage {
+  &__box {
+    background-color: hsl(228, 56%, 26%);
+    padding: rem(50px) rem(45px);
+    border-radius: 9px;
+    position: relative;
+  }
+
+  &__bar {
+    background: hsl(229, 57%, 11%);
+    border-radius: 35px;
+    height: 1.2rem;
+    position: relative;
+    margin-bottom: rem(12px);
+
+    &::before {
+      content: "";
+      background: linear-gradient(
+        90deg,
+        rgba(255, 163, 153, 1) 15%,
+        rgba(255, 77, 151, 1) 100%
+      );
+
+      border-radius: 35px;
+
+      height: rem(15px);
+      width: rem(358px);
+
+      top: 50%;
+      left: rem(2px);
+      transform: translateY(-50%);
+      position: absolute;
+
+      @include respond(phone) {
+        width: rem(180px);
+      }
+    }
+
+    &::after {
+      content: "";
+      background-color: hsl(243, 100%, 93%);
+      border-radius: 50%;
+      height: rem(12px);
+      width: rem(12px);
+      top: 50%;
+      transform: translateY(-50%);
+      right: 27%;
+      position: absolute;
+
+      @include respond(phone) {
+        right: 28%;
+      }
+    }
+  }
+}
+
+.marker {
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    font-size: rem(14px);
+    font-weight: 700;
+    color: hsl(243, 100%, 93%);
+  }
+}
+
+.gb {
+  &__box {
+    background-color: #fff;
+    padding: rem(15px) rem(25px);
+    border-radius: 10px;
+    position: absolute;
+
+    top: -25%;
+    right: 7%;
+
+    @include respond(phone) {
+      top: 85%;
+      right: 20%;
+    }
+
+    &::after {
+      content: "";
+      background-color: #fff;
+      // background-color: red;
+      height: rem(35px);
+      width: rem(35px);
+      right: 0;
+      display: block;
+      position: absolute;
+
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    color: hsl(229, 57%, 11%);
+    font-size: rem(48px);
+    font-weight: 700;
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+
+    gap: rem(10px);
+
+    & span {
+      font-size: rem(14px);
+      color: hsl(229, 7%, 55%);
+    }
+  }
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
